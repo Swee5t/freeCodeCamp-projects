@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mẫu khảo sát sinh viên</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="title" id="title">Mẫu khảo sát sinh viên</h1>
+            <p class="description" id="description">Dành cho sinh viên Cao đẳng và Đại học</p>
+        </header>
+        <!-- FORM -->
+        <form action="" class="form" id="survey-form">
+            <!-- NAME -->
+            <div class="form-group">
+                <label for="name" class="label" id="name-label">Họ và tên</label>
+                <input type="text" class="input" name="name" id="name" placeholder="Nhập họ và tên của bạn"
+                    spellcheck="false" required>
+                <span class="separator-line"></span>
+            </div>
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label for="email" class="label" id="email-label">Email</label>
+                <input type="email" class="input" name="email" id="email" placeholder="Nhập email của bạn" required>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="receive-results" value="yes">
+                        Nhận kết quả khảo sát qua email
+                    </label>
+                </div>
+                <span class="separator-line"></span>
+            </div>
+            <!-- AGE -->
+            <div class="form-group">
+                <label for="age" class="label" id="age">Độ tuổi hiện tại</span></label>
+                <select class="form-control" name="age" id="dropdown">
+                    <option value="<18">Dưới 18 tuổi</option>
+                    <option selected value="18-20">Từ 18 đến 20 tuổi</option>
+                    <option value="21-24">Từ 21 đến 24 tuổi</option>
+                    <option value="25-30">Từ 25 đến 30 tuổi</option>
+                    <option value=">30">Trên 30 tuổi</option>
+                </select>
+                <span class="separator-line"></span>
+            </div>
+            <!-- SCHOOL NAME -->
+            <div class="form-group">
+                <label for="school-name" class="label" id="school-name-label">Bạn đang học tại trường nào?</label>
+                <input type="text" class="input" name="school-name" id="school-name"
+                    placeholder="Nhập tên trường bạn đang học" required>
+                <p class="note">VD: Trường Đại học Khoa học Tự nhiên - Đại học Quốc gia TP.HCM</p>
+                <span class="separator-line"></span>
+            </div>
+            <!-- MAJOR -->
+            <div class="form-group">
+                <label for="major" class="label" id="major-label">Bạn đang học ngành nào?</label>
+                <input type="text" class="input" name="major" id="major"
+                    placeholder="Nhập ngành học của bạn" required>
+                <p class="note">VD: Trí tuệ nhân tạo</p>
+                <span class="separator-line"></span>
+            </div>
+            <!-- HIGHER EDUCATION -->
+            <div class="form-group">
+                <label for="higher-education" class="label">Hệ đào tạo</label>
+                <select class="form-control" name="higher-education" id="dropdown">
+                    <option value="bachelor-degree">Đại học chính quy</option>
+                    <option value="top-up-bachelor">Đại học liên thông</option>
+                    <option value="distance-learning-bachelor">Đại học từ xa</option>
+                    <option value="associate-degree">Cao đẳng chính quy</option>
+                    <option value="vocational-college">Cao đẳng nghề</option>
+                </select>
+                <span class="separator-line"></span>
+            </div>
+            <!-- AVERAGE WEEKLY CLASSES -->
+            <div class="form-group">
+                <label for="year-of-study" class="label">Bạn đang học năm thứ mấy?</label>
+                <select class="form-control" name="year-of-study" id="dropdown">
+                    <option value="freshman">Năm thứ nhất</option>
+                    <option value="sophomore">Năm thứ hai</option>
+                    <option value="junior">Năm thứ ba</option>
+                    <option value="senior">Năm thứ tư</option>
+                    <option value="fifth-year">Năm thứ năm</option>
+                    <option value="sixth-year">Năm thứ sáu</option>
+                </select>
+                <p class="note"></p>
+                <span class="separator-line"></span>
+            </div>
+            <!-- YEARS STUDIED -->
+            <div class="form-group">
+                <!-- The name is "number" because this is a required field in the freeCodeCamp test -->
+                <label for="number" class="label" id="number-label">Số tiết học trung
+                    bình trong một tuần?
+                    <span class="clue">(tùy chọn)</span></span></label>
+                <input type="number" id="number" name="number" class="input" placeholder="Nhập số tiết học trung bình"
+                    min="1" max="100">
+                <span class="separator-line"></span>
+            </div>
+            <!-- EXPERIENCE -->
+            <div class="form-group">
+                <label for="experience" class="label" id="experience-label">Bạn có trải nghiệm thế nào khi học tại
+                    trường?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="experience" value="very-satisfied" required>
+                        Rất hài lòng
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="experience" value="satisfied" required>
+                        Hài lòng
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="experience" value="neutral" required>
+                        Bình thường
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="experience" value="dissatisfied" required>
+                        Không hài lòng
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="experience" value="very-dissatisfied" required>
+                        Rất không hài lòng
+                    </label>
+                </div>
+                <span class="separator-line"></span>
+            </div>
+            <!-- IMPROVEMENT -->
+            <div class="form-group">
+                <label for="improvement" class="label" id="improvement-label">Bạn mong muốn trường cải thiện những điểm
+                    nào?</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="quality-of-teaching">
+                        Cải thiện chất lượng giảng dạy
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="facilities-improvement">
+                        Tăng cường cơ sở vật chất
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="student-support-services">
+                        Nâng cao dịch vụ hỗ trợ sinh viên
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="extracurricular-activities">
+                        Tổ chức nhiều hoạt động ngoại khóa hơn
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="access-to-learning-materials">
+                        Cải thiện khả năng tiếp cận tài liệu học tập
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="career-counseling">
+                        Tăng cường hỗ trợ tư vấn nghề nghiệp
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="workshops-and-seminars">
+                        Tổ chức các buổi hội thảo chuyên đề
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="internship-opportunities">
+                        Tạo thêm cơ hội thực tập và việc làm
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="enrollment-process-improvement">
+                        Cải thiện quy trình ghi danh và đăng ký môn học
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="international-exchange">
+                        Tăng cường giao lưu quốc tế
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="canteen-quality">
+                        Cải thiện chất lượng bữa ăn trong ký túc xá
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="online-learning-programs">
+                        Phát triển chương trình học trực tuyến
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="soft-skills-training">
+                        Tăng cường các khóa học kỹ năng mềm
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="food-and-beverage">
+                        Thêm đồ ăn vặt tại căn tin
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="improvement" value="other">
+                        Khác
+                    </label>
+                </div>
+                <p class="note">Chọn tất cả những lựa chọn phù hợp.</p>
+                <span class="separator-line"></span>
+            </div>
+            <!-- FEEDBACK -->
+            <div class="form-group">
+                <label for="feedback" class="label">Hãy chia sẽ cảm nhận của bạn khi học tại trường <span
+                        class="clue">(tùy chọn)</span></label>
+                <textarea class="textarea" name="feedback" id="feedback" placeholder="Hãy kể thêm đi mà năn nỉ đó..."
+                    maxlength="1500"></textarea>
+                <p class="note" id="feedback-note">Tối đa 1500 kí tự.</p>
+                <span class="separator-line"></span>
+
+                <!-- SCRIPT KIỂM TRA SỐ LƯỢNG KÝ TỰ KHI NHẬP -->
+                <script>
+                    document.getElementById('feedback').addEventListener('input', function () {
+                        const maxLength = this.maxLength;
+                        const currentLength = this.value.length;
+                        const remainingLength = maxLength - currentLength;
+
+                        const noteElement = document.getElementById('feedback-note');
+                        noteElement.textContent = `${currentLength} / ${remainingLength}`;
+                    });
+                </script>
+            </div>
+            <!-- SUBMIT -->
+            <div class="form-group">
+                <div class="submit-button">
+                    <button class="button" type="submit" id="submit">Nộp khảo sát</button>
+                </div>
+                <p class="note">Kết quả khảo sát sẽ được công bố trên trang chủ <a href="https://www.example.com" target="_blank" class="hyperlink">www.example.com</a> vào ngày dd/mm/yyyy.</p>
+                <p class="note">Kết quả khảo sát sẽ được trình bày dưới dạng dữ liệu thống kê. Tên và Email của bạn là thông tin được bảo mật và sẽ không hiển thị trong kết quả khảo sát.
+                </p>
+                <p class="note">Việc nhấn vào nút "Nộp khảo sát" sẽ hiển thị một pop-up bao gồm các thông tin đã cung
+                    cấp. Trang web này không thu thập bất kì dữ liệu nào bạn đã nhập ở trên.</p>
+                <span class="separator-line"></span>
+            </div>
+        </form>
+        <footer class="footer"></footer>
+    </div>
+
+    <!-- SCRIPT TỔNG HỢP KẾT QUẢ ĐÃ NHẬP -->
+    <script>
+        document.getElementById('survey-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const receiveResults = document.querySelector('input[name="receive-results"]:checked');
+            const age = document.querySelector('select[name="age"]').value;
+            const schoolName = document.getElementById('school-name').value;
+            const major = document.getElementById('major').value;
+            const higherEducation = document.querySelector('select[name="higher-education"]').value;
+            const yearOfStudy = document.querySelector('select[name="year-of-study"]').value;
+            const averageWeeklyClasses = document.getElementById('number').value;
+            const experience = document.querySelector('input[name="experience"]:checked').value;
+            const improvements = Array.from(document.querySelectorAll('input[name="improvement"]:checked')).map(el => el.parentNode.textContent.trim()).join(', ');
+            const feedback = document.getElementById('feedback').value;
+
+            const popupContent = `
+                ✨ Họ và tên: ${name}
+                💌 Email: ${email}
+                📩 Nhận kết quả khảo sát: ${receiveResults ? 'Có' : 'Không'}
+                💖 Độ tuổi: ${age}
+                🏫 Tên trường: ${schoolName}
+                💻 Ngành học: ${major}
+                📕 Hệ đào tạo: ${higherEducation}
+                📖 Năm học: ${yearOfStudy}
+                🧐 Số tiết học trung bình: ${averageWeeklyClasses ? averageWeeklyClasses : 'N/A'}
+                💮 Đánh giá: ${experience}
+                ✏️ Cải thiện mong muốn: ${improvements ? improvements : 'N/A'}
+                📃 Feedback: ${feedback ? feedback : 'N/A'}
+            `;
+
+            alert(popupContent);
+        });
+    </script>
+</body>
+
+</html>
