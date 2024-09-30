@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-    --text-color: 238, 238, 238;
+    --primary-text-color: 238, 238, 238;
+    --secondary-text-color: 204, 204, 204;
+    --tertiary-text-color: 170, 170, 170;
     --background-color: 12, 15, 18;
     --form-background-color: 22, 25, 28;
     --input-background-color: 32, 35, 38;
@@ -22,7 +24,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: rgb(var(--text-color));
+    color: rgb(var(--primary-text-color));
     background-color: rgb(var(--background-color));
 }
 
@@ -51,7 +53,7 @@ header {
         font-size: 16px;
         font-weight: 500;
         margin-top: 10px;
-        color: rgba(var(--text-color), .8);
+        color: rgba(var(--secondary-text-color), .8);
     }
 }
 
@@ -76,10 +78,10 @@ footer {
         .label {
             font-size: 16px;
             font-weight: 500;
-            color: rgba(var(--text-color), .8);
+            color: rgba(var(--secondary-text-color), .8);
 
             .clue {
-                color: rgba(var(--text-color), .4);
+                color: rgba(var(--tertiary-text-color), .4);
             }
         }
 
@@ -89,8 +91,8 @@ footer {
             width: 100%;
             padding: 10px;
             font-size: 16px;
-            font-weight: 500;
-            color: rgb(var(--text-color));
+            font-weight: 400;
+            color: rgb(var(--primary-text-color));
             background: rgba(var(--input-background-color), .5);
             border: none;
             border-radius: 10px;
@@ -98,7 +100,7 @@ footer {
             appearance: none;
 
             &::placeholder {
-                color: rgba(var(--text-color), .2);
+                color: rgba(var(--tertiary-text-color), .2);
             }
 
             &:hover,
@@ -142,10 +144,10 @@ footer {
         .checkbox-label {
             display: flex;
             gap: 10px;
-            color: rgba(var(--text-color), .4);
+            color: rgba(var(--secondary-text-color), .4);
 
             &:has(:checked) {
-                color: rgba(var(--text-color), .8);
+                color: rgba(var(--primary-text-color), .8);
             }
         }
 
@@ -168,11 +170,21 @@ footer {
         }
 
         .note {
+            width: fit-content;
             margin-top: 10px;
             font-size: 12px;
             font-weight: 400;
             line-height: 1.5;
-            color: rgb(var(--text-color), .4);
+            color: rgb(var(--tertiary-text-color), .6);
+
+            &.gradient {
+                background-image: linear-gradient(90deg, rgba(var(--tertiary-text-color), 1), rgba(var(--tertiary-text-color), .6), rgba(var(--tertiary-text-color), 1));
+                background-size: 200% auto;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: animatedTextGradient 1s linear infinite
+            }
         }
 
         .separator-line {
@@ -198,5 +210,11 @@ footer {
     
     &:hover {
         text-decoration: underline;
+    }
+}
+
+@keyframes animatedTextGradient {
+    to {
+        background-position: -200% center;
     }
 }

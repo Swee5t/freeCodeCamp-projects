@@ -186,10 +186,6 @@
                         Tăng cường các khóa học kỹ năng mềm
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" name="improvement" value="food-and-beverage">
-                        Thêm đồ ăn vặt tại căn tin
-                    </label>
-                    <label class="checkbox-label">
                         <input type="checkbox" name="improvement" value="other">
                         Khác
                     </label>
@@ -199,42 +195,58 @@
             </div>
             <!-- FEEDBACK -->
             <div class="form-group">
-                <label for="feedback" class="label">Hãy chia sẽ cảm nhận của bạn khi học tại trường <span
+                <label for="feedback" class="label">Hãy chia sẽ cảm nhận của bạn khi học tại trường. <span
                         class="clue">(tùy chọn)</span></label>
                 <textarea class="textarea" name="feedback" id="feedback" placeholder="Hãy kể thêm đi mà năn nỉ đó..."
-                    maxlength="1500"></textarea>
-                <p class="note" id="feedback-note">Tối đa 1500 kí tự.</p>
+                    maxlength="500"></textarea>
+                <p class="note" id="feedback-note">Tối đa 500 kí tự.</p>
                 <span class="separator-line"></span>
-
-                <!-- SCRIPT KIỂM TRA SỐ LƯỢNG KÝ TỰ KHI NHẬP -->
-                <script>
-                    document.getElementById('feedback').addEventListener('input', function () {
-                        const maxLength = this.maxLength;
-                        const currentLength = this.value.length;
-                        const remainingLength = maxLength - currentLength;
-
-                        const noteElement = document.getElementById('feedback-note');
-                        noteElement.textContent = `${currentLength} / ${remainingLength}`;
-                    });
-                </script>
             </div>
             <!-- SUBMIT -->
             <div class="form-group">
                 <div class="submit-button">
-                    <button class="button" type="submit" id="submit">Nộp khảo sát</button>
+                    <button class="button" type="submit" id="submit">Gửi khảo sát</button>
                 </div>
-                <p class="note">Kết quả khảo sát sẽ được công bố trên trang chủ <a href="https://www.example.com"
-                        target="_blank" class="hyperlink">www.example.com</a> vào ngày <span id="date"></span>.</p>
-                <p class="note">Kết quả khảo sát sẽ được trình bày dưới dạng dữ liệu thống kê. Tên và Email của bạn là
-                    thông tin được bảo mật và sẽ không hiển thị trong kết quả khảo sát.
+                <p class="note">Kết quả khảo sát sẽ được công bố trên <a href="https://www.example.com" target="_blank"
+                        class="hyperlink">www.example.com</a> vào <span id="date"></span>.</p>
+                <p class="note">Kết quả khảo sát sẽ được trình bày dưới dạng dữ liệu thống kê. Tên và địa chỉ email của
+                    bạn sẽ được bảo mật và sẽ không được công khai trong kết quả khảo sát.
                 </p>
-                <p class="note">Việc nhấn vào nút "Nộp khảo sát" sẽ hiển thị một pop-up bao gồm các thông tin đã cung
-                    cấp. Trang web này không thu thập bất kì dữ liệu nào bạn đã nhập ở trên.</p>
+                <p class="note">Việc nhấn vào nút "Gửi khảo sát" sẽ hiển thị một pop-up bao gồm các thông tin đã cung
+                    cấp. Trang web này cam kết không thu thập bất kỳ dữ liệu nào bạn đã nhập ở trên.</p>
                 <span class="separator-line"></span>
+                <p class="note">Trang web này là một trong những dự án mình đã thực hiện trong phần <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank" class="hyperlink">Responsive Web Design</a> trên <a href="https://www.freecodecamp.org/" target="_blank" class="hyperlink">freeCodeCamp</a>, và nó cũng là một dự án mã nguồn mở. Bạn có thể <a href="https://github.com/Swee5t/freeCodeCamp-projects/tree/main/responsive-web-design/survey-form" target="_blank" class="hyperlink">truy cập vào đây</a> để xem.</p>
             </div>
         </form>
         <footer class="footer"></footer>
     </div>
+
+    <!-- SCRIPT KIỂM TRA SỐ LƯỢNG KÝ TỰ KHI NHẬP -->
+    <script>
+        const lastInputTime = Date.now();
+        let previousTextContent;
+        let timeoutId;
+
+        document.getElementById('feedback').addEventListener('input', function () {
+            const maxLength = this.maxLength;
+            const currentLength = this.value.length;
+            const remainingLength = maxLength - currentLength;
+
+            const noteElement = document.getElementById('feedback-note');
+
+            if (!timeoutId) previousTextContent = noteElement.textContent;
+
+            noteElement.textContent = `${previousTextContent} (${currentLength} / ${remainingLength})`;
+            noteElement.classList.add('gradient');
+
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(() => {
+                noteElement.textContent = previousTextContent;
+                noteElement.classList.remove('gradient')
+            }, 3000);
+        });
+    </script>
 
     <!-- SCRIPT TỔNG HỢP KẾT QUẢ ĐÃ NHẬP -->
     <script>
@@ -279,7 +291,7 @@
             const day = String(date.getDate()).padStart(2, '0');
             const month = String(date.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
             const year = date.getFullYear();
-            return `${day}/${month}/${year}`;
+            return `ngày ${day} tháng ${month} năm ${year}`;
         }
 
         const today = new Date();
