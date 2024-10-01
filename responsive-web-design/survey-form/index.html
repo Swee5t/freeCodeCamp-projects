@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mẫu khảo sát sinh viên</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -131,7 +130,7 @@
             <!-- IMPROVEMENT -->
             <div class="form-group">
                 <label for="improvement" class="label" id="improvement-label">Bạn mong muốn trường cải thiện những điểm
-                    nào?</label>
+                    nào? <span class="clue">(tùy chọn)</span></label>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" name="improvement" value="quality-of-teaching">
@@ -212,10 +211,22 @@
                 <p class="note">Kết quả khảo sát sẽ được trình bày dưới dạng dữ liệu thống kê. Tên và địa chỉ email của
                     bạn sẽ được bảo mật và sẽ không được công khai trong kết quả khảo sát.
                 </p>
+                <span class="separator-line"></span>
+            </div>
+            <!-- NOTE -->
+            <div class="form-group">
                 <p class="note">Việc nhấn vào nút "Gửi khảo sát" sẽ hiển thị một pop-up bao gồm các thông tin đã cung
                     cấp. Trang web này cam kết không thu thập bất kỳ dữ liệu nào bạn đã nhập ở trên.</p>
+                <p class="note">Trang web này là một trong những dự án mình đã thực hiện trong phần <a
+                        href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank"
+                        class="hyperlink">Responsive Web Design</a> trên <a href="https://www.freecodecamp.org/"
+                        target="_blank" class="hyperlink">freeCodeCamp</a>, và nó cũng là một dự án mã nguồn mở. Bạn có
+                    thể truy cập vào <a
+                        href="https://github.com/Swee5t/freeCodeCamp-projects/tree/main/responsive-web-design/survey-form"
+                        target="_blank" class="hyperlink">Repository</a> này để xem.</p>
+                <p class="note">Phông chữ đang được sử dụng: <a href="https://fonts.google.com/specimen/Be+Vietnam+Pro"
+                        target="_blank" class="hyperlink">Be Vietnam Pro</a></p>
                 <span class="separator-line"></span>
-                <p class="note">Trang web này là một trong những dự án mình đã thực hiện trong phần <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank" class="hyperlink">Responsive Web Design</a> trên <a href="https://www.freecodecamp.org/" target="_blank" class="hyperlink">freeCodeCamp</a>, và nó cũng là một dự án mã nguồn mở. Bạn có thể <a href="https://github.com/Swee5t/freeCodeCamp-projects/tree/main/responsive-web-design/survey-form" target="_blank" class="hyperlink">truy cập vào đây</a> để xem.</p>
             </div>
         </form>
         <footer class="footer"></footer>
@@ -289,13 +300,15 @@
     <script>
         function formatDate(date) {
             const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+            const month = String(date.getMonth() + 1).padStart(2, '0');
             const year = date.getFullYear();
             return `ngày ${day} tháng ${month} năm ${year}`;
         }
 
         const today = new Date();
-        const formattedDate = formatDate(today);
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        const formattedDate = formatDate(tomorrow);
 
         document.getElementById('date').textContent = formattedDate;
     </script>
